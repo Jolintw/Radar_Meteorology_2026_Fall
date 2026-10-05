@@ -13,4 +13,4 @@ for image in images:
     times.append(dd.strptime(filename[12:24], "%Y%m%d%H%M"))
 images = [x for _, x in sorted(zip(times, images))]
 images = [Image.open(str(img)) for img in images]
-images[0].save(video_name, save_all=True, append_images=images[1:], optimize=False, duration=100, loop=1)
+images[0].save(video_name, save_all=True, append_images=images[1:], optimize=False, duration=1000/fps, loop=1)
