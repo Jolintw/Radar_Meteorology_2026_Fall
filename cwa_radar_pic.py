@@ -1,5 +1,6 @@
 import subprocess
 import time
+import random
 from pathlib import Path
 
 year = "2026"
@@ -22,4 +23,4 @@ for H in HH:
         elif env == "linux":
             commend = ["wget", "-P", str(picpath), f"{webpath}{filename}"]
         subprocess.run(commend)
-        time.sleep(0.5) # don't touch this line
+        time.sleep(1 + random.randrange(50)/100) # don't touch this line
