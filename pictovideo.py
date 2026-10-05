@@ -7,12 +7,9 @@ video_name = 'output_moviepy.gif'
 fps = 1
 
 images = list(image_folder.glob("*"))
-# images = [str(image) for image in images]
-# print(images)
 times = []
 for image in images:
     filename = image.parts[-1]
-    # times.append(dd.strptime(filename[9:21], "%Y%m%d%H%M"))
     times.append(dd.strptime(filename[12:24], "%Y%m%d%H%M"))
 images = [x for _, x in sorted(zip(times, images))]
 images = [Image.open(str(img)) for img in images]

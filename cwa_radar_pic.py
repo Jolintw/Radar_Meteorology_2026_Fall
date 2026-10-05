@@ -3,12 +3,12 @@ import time
 import random
 from pathlib import Path
 
-year = "2026"
-mm = "10"
-dd = "05"
 env = "windows" # "linux" or "windows"
-MM = range(0, 60, 10)
-HH = range(0, 24, 1)
+year = "2026"
+mm = "10" # month
+dd = "05" # day
+MM = range(0, 60, 10) # minute
+HH = range(0, 24, 1) # hour
 MM = [f"{M:02d}" for M in MM]
 HH = [f"{H:02d}" for H in HH]
 picpath = Path("./pic")
