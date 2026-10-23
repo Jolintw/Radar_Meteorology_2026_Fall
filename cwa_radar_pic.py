@@ -3,17 +3,17 @@ import time
 import random
 from pathlib import Path
 
-env = "windows" # "linux" or "windows"
+env = "mac" # "linux" or "windows" or "mac"
 year = "2026"
 mm = "10" # month
-dd = "05" # day
+dd = "23" # day
 MM = range(0, 60, 10) # minute
 HH = range(0, 24, 1) # hour
 MM = [f"{M:02d}" for M in MM]
 HH = [f"{H:02d}" for H in HH]
 picpath = Path("./pic")
 picpath.mkdir(exist_ok=True, parents=True)
-
+# curl -o output.html "https://apifox.com"
 for H in HH:
     for M in MM:
         webpath = f"https://www.cwa.gov.tw/Data/radar/"
@@ -22,5 +22,7 @@ for H in HH:
             commend = ["powershell", "-Command", "Invoke-WebRequest", "-Uri", f"{webpath}{filename}", "-OutFile", f"{str(picpath / filename)}"]
         elif env == "linux":
             commend = ["wget", "-P", str(picpath), f"{webpath}{filename}"]
+        elif env == "mac":
+            commend = ["curl", "-o", str(picpath/filename), f"{webpath}{filename}"]
         subprocess.run(commend)
         time.sleep(1 + random.randrange(50)/100) # don't touch this line
